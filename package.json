@@ -1,0 +1,84 @@
+{
+  "name": "harvard-student-organizations",
+  "description": "Get data from Harvard student organizations",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",
+    "build:umd": "webpack --output-filename index.umd.js",
+    "build:umd.min": "webpack --output-filename index.umd.min.js -p",
+    "commit": "git-cz",
+    "precommit": "npm run cover && npm run check-coverage",
+    "prepush": "npm run cover && npm run check-coverage",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "watch:test": "npm test -- -watch",
+    "test": "standard && mocha src/index.test.js --compilers js:babel-register",
+    "cover": "nyc npm test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tobiasbueschel/harvard-student-organizations.git"
+  },
+  "keywords": [
+    "harvard",
+    "dataset",
+    "open-data",
+    "open-datasets",
+    "student-organizations",
+    "students",
+    "university",
+    "clubs"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "www.github.com/tobiasbueschel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobiasbueschel/harvard-student-organizations/issues"
+  },
+  "homepage": "https://github.com/tobiasbueschel/harvard-student-organizations#readme",
+  "dependencies": {
+    "unique-random-array": "1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-loader": "6.4.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "babel-register": "6.24.1",
+    "chai": "3.5.0",
+    "codecov.io": "0.1.6",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.0.0",
+    "husky": "^0.13.3",
+    "istanbul": "0.4.5",
+    "json-loader": "0.5.4",
+    "mocha": "3.2.0",
+    "npm-run-all": "4.0.2",
+    "nyc": "10.2.0",
+    "rimraf": "2.6.1",
+    "semantic-release": "^6.3.2",
+    "standard": "^10.0.1",
+    "webpack": "2.3.3"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
+  }
+}
