@@ -1,5 +1,5 @@
 import uniqueRandomArray from 'unique-random-array'
-import harvardStudentOrganizations from './../data/harvard-student-organizations.json'
+import harvardStudentOrganizations from './harvard-student-organizations.json'
 
 const getRandomStudentOrganization = uniqueRandomArray(harvardStudentOrganizations)
 
