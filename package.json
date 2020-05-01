@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/tobiasbueschel/harvard-student-organizations#readme",
   "dependencies": {
-    "unique-random-array": "1.0.0"
+    "unique-random-array": "1.0.1"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
